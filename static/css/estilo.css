@@ -1,0 +1,28 @@
+.escudo-mini{
+    height: 2em;
+}
+/*
+CSS usados por mim mas que vocês não precisam utilizar
+tr td:first-child{
+    width: 1%;
+}
+table tr:not(:first-child) td:nth-child(odd):not(:first-child){
+    background-color: #f8f8f8;
+}
+
+.borderless{
+    border-width: 0px;
+}
+
+a > li{
+    color: black;
+}
+.versus-symbol{
+    font-weight: bold ;
+    font-size: xx-large;
+}
+
+.center{
+    display: table;
+    margin: 1em auto;
+}*/

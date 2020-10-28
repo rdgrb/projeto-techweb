@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+<!-- Esse bloco é um gerenciamento de Erro, não precisa mexer -->
+{% if errors %}
+	<div class="container">
+    	{%- for msg in errors %}
+    		<div class="alert alert-danger" role="alert">
+				{{ msg }}
+				{% for error in errors[msg] %}
+				{{error}}
+				{% endfor %}
+			</div>
+    	{% endfor -%}
+	</div>
+{% endif %}
+<!-- Faça o template a partir daqui-->
+
+Fazer o template Aqui
+	
+{% endblock %}
+
