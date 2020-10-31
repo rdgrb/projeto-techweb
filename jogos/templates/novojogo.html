@@ -17,7 +17,35 @@
 {% endif %}
 <!-- Faça o template a partir daqui-->
 
-Fazer o template Aqui
+<form action="" method="POST" novalidate>
+	{{ form.hidden_tag() }}
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				{{ form.rodada.label }} {{ form.rodada(size=32) }}
+				<br>
+				{{ form.data.label }} {{ form.data(size=32) }}
+				<br>
+				{{ form.mandante.label }} {{ form.mandante(size=10) }}
+				<br>
+				{{ form.gols_mandante.label }} {{ form.gols_mandante(size=15) }}
+				<br>
+				{{ form.amarelos_mandante.label }} {{ form.amarelos_mandante(size=15) }}
+				<br>
+				{{ form.vermelhos_mandante.label }} {{ form.vermelhos_mandante(size=15) }}
+				<br>
+				{{ form.visitante.label }} {{ form.visitante(size=10) }}
+				<br>
+				{{ form.gols_visitante.label }} {{ form.gols_visitante(size=15) }}
+				<br>
+				{{ form.amarelos_visitante.label }} {{ form.amarelos_visitante(size=15) }}
+				<br>
+				{{ form.vermelhos_visitante.label }} {{ form.vermelhos_visitante(size=15) }}
+				<br>
+				{{ form.enviar() }}
+			</div>
+		</div>
+	</div>
 	
 {% endblock %}
 

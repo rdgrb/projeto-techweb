@@ -1,5 +1,19 @@
 {% extends "base.html"%}
 
 {% block app_content %}
-Fazer esse template
+<a href="{{ url_for('jogos.create') }}" class="btn btn-default">Novo jogo</a>
+<br>
+<br>
+<div class="container">
+    {% for rodada in jogos %}
+    <h1> RODADA {{ rodada }} </h1>
+    <ul>
+        {% for jogo in jogos[rodada] %}
+            <li>{{jogo.mandante.nome}} {{jogo.gols_mandante}} X {{jogo.gols_visitante}} {{jogo.visitante.nome}}</li>
+            {% else %}
+            Não houveram jogos para essa rodada
+        {% endfor %}
+    </ul>
+    {% endfor %}
+</div>
 {% endblock %} 
