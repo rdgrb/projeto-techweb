@@ -4,48 +4,64 @@
 {% block app_content %}
 <!-- Esse bloco é um gerenciamento de Erro, não precisa mexer -->
 {% if errors %}
-	<div class="container">
-    	{%- for msg in errors %}
-    		<div class="alert alert-danger" role="alert">
-				{{ msg }}
-				{% for error in errors[msg] %}
-				{{error}}
-				{% endfor %}
-			</div>
-    	{% endfor -%}
+<div class="container">
+	{%- for msg in errors %}
+	<div class="alert alert-danger" role="alert">
+		{{ msg }}
+		{% for error in errors[msg] %}
+		{{error}}
+		{% endfor %}
 	</div>
+	{% endfor -%}
+</div>
 {% endif %}
 <!-- Faça o template a partir daqui-->
+
 
 <form action="" method="POST" novalidate>
 	{{ form.hidden_tag() }}
 	<div class="container">
 		<div class="row">
-			<div class="col-md-4">
-				{{ form.rodada.label }} {{ form.rodada(size=32) }}
-				<br>
-				{{ form.data.label }} {{ form.data(size=32) }}
-				<br>
-				{{ form.mandante.label }} {{ form.mandante(size=10) }}
-				<br>
-				{{ form.gols_mandante.label }} {{ form.gols_mandante(size=15) }}
-				<br>
-				{{ form.amarelos_mandante.label }} {{ form.amarelos_mandante(size=15) }}
-				<br>
-				{{ form.vermelhos_mandante.label }} {{ form.vermelhos_mandante(size=15) }}
-				<br>
-				{{ form.visitante.label }} {{ form.visitante(size=10) }}
-				<br>
-				{{ form.gols_visitante.label }} {{ form.gols_visitante(size=15) }}
-				<br>
-				{{ form.amarelos_visitante.label }} {{ form.amarelos_visitante(size=15) }}
-				<br>
-				{{ form.vermelhos_visitante.label }} {{ form.vermelhos_visitante(size=15) }}
-				<br>
-				{{ form.enviar() }}
+			<div class="col-md-6">
+				{{wtf.form_field(form.rodada)}}
+			</div>
+			<div class="col-md-6">
+				{{wtf.form_field(form.data)}}
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				{{wtf.form_field(form.mandante)}}
+			</div>
+			<div class="col-md-2">
+				{{wtf.form_field(form.gols_mandante)}}
+			</div>
+			<div class="col-md-2">
+				{{wtf.form_field(form.amarelos_mandante)}}
+			</div>
+			<div class="col-md-2">
+				{{wtf.form_field(form.vermelhos_mandante)}}
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				{{wtf.form_field(form.visitante)}}
+			</div>
+			<div class="col-md-2">
+				{{wtf.form_field(form.gols_visitante)}}
+			</div>
+			<div class="col-md-2">
+				{{wtf.form_field(form.amarelos_visitante)}}
+			</div>
+			<div class="col-md-2">
+				{{wtf.form_field(form.vermelhos_visitante)}}
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				{{wtf.form_field(form.enviar)}}
 			</div>
 		</div>
 	</div>
-	
-{% endblock %}
-
+</form>
+	{% endblock %}

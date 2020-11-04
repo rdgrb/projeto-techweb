@@ -1,9 +1,9 @@
 {% extends 'bootstrap/base.html' %}
-
 {% block styles %}
     {{ super() }}
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/estilo.css') }}">
 {% endblock %}
+
 
 {% block title %}
 	{% if title %}
@@ -33,9 +33,25 @@
                     {% if current_user.is_anonymous %}
                     <li><a href="{{ url_for('auth.login') }}">Login</a></li>
                     {% else %}
-                    <li><a href="{{ url_for('jogos.index') }}">Gerenciar Jogos</a></li>
-                    <li><a href="{{ url_for('times.index') }}">Gerenciar Times</a></li>
+                    <!--<li><a href="{{ url_for('jogos.index') }}">Gerenciar Jogos</a></li>-->
+                    <!-- <li><a href="{{ url_for('times.index') }}">Gerenciar Times</a></li>-->
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Jogos <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                          <li><a href="{{ url_for('jogos.index') }}"> <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> &nbsp; Gerenciar</a></li>
+                          <li><a href="{{ url_for('jogos.create') }}"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> &nbsp; Novo</a></li>
+                        </ul>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Times <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                          <li><a href="{{ url_for('times.index') }}"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> &nbsp; Gerenciar</a></li>
+                          <li><a href="{{ url_for('times.create') }}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> &nbsp; Novo</a></li>
+                        </ul>
+                      </li>
+                
                     <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
+                
                     {% endif %}
                 </ul>
             </div>
@@ -44,7 +60,7 @@
 {% endblock %}
 
 {% block content %}
-	<div class="container">
+	<div class="container theme-showcase" role="main">
 	  {% with messages = get_flashed_messages() %}
 			{% for message in messages %}
             <div class="alert alert-info" role="alert">{{ message }}</div>

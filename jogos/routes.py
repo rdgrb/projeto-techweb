@@ -66,7 +66,7 @@ def update(id):
         jogo.vermelhos_visitante = form.vermelhos_visitante.data
         db.session.add(jogo)
         db.session.commit()
-        flash('Your changes have been saved.')
+        flash('As alterações foram atualizadas com sucesso.')
         return redirect(url_for('jogos.index'))
     elif request.method == 'GET':
         form.rodada.data = jogo.rodada

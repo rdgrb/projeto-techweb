@@ -1,19 +1,114 @@
 {% extends "base.html"%}
 
 {% block app_content %}
-<a href="{{ url_for('jogos.create') }}" class="btn btn-default">Novo jogo</a>
-<br>
-<br>
-<div class="container">
-    {% for rodada in jogos %}
-    <h1> RODADA {{ rodada }} </h1>
-    <ul>
-        {% for jogo in jogos[rodada] %}
-            <li>{{jogo.mandante.nome}} {{jogo.gols_mandante}} X {{jogo.gols_visitante}} {{jogo.visitante.nome}}</li>
-            {% else %}
-            Não houveram jogos para essa rodada
-        {% endfor %}
-    </ul>
-    {% endfor %}
+<div class="row">
+    <div class="col-xl-12">
+        <div id="carousel-table" class="carousel slide" data-ride="carousel" data-interval="false">
+            <div class="carousel-inner" role="listbox">
+                <!-- carousel confrontos -->
+                <div id="carousel-small-table1" class="carousel slide col-xl-12 col-sm-12" data-ride="carousel"
+                    data-interval="false">
+                    <div class="carousel-inner" role="listbox">
+
+                        {% set rodadaActive = 1 %}
+                        {% for rodada in jogos %}
+                        {% if rodadaActive == rodada %}
+                        {% set active = 'active' %}
+                        {% endif %}
+                        <div class="item {{active}}">
+                            <div class="col-xl-12">
+                                <h3 class="fonte-titulo titulo-carousel-small">{{rodada}} ª Rodada</h3>
+                                <ul class="lista-jogos">
+                                    {% for jogo in jogos[rodada] %}
+                                    <li class="lista-jogos__jogo">
+                                        <div>
+                                            <div class="jogo__informacoes">
+                                                <span class="jogo__informacoes--data">
+                                                    {{jogo.data.strftime('%d/%m/%Y') }}
+                                                </span>
+                                            </div>
+                                            <div class="placar">
+                                                <div class="placar__equipes placar__equipes--mandante">
+                                                    <span class="equipes__nome">{{jogo.mandante.nome}}</span>
+                                                    <img class="equipes__escudo equipes__escudo--mandante"
+                                                        src="{{jogo.mandante.escudo}}" width="30" height="30"
+                                                        title="{{jogo.mandante.nome}}">
+                                                </div>
+                                                <div class="placar-box">
+                                                    <span
+                                                        class="placar-box__valor placar-box__valor--mandante">{{jogo.gols_mandante}}</span>
+                                                    <span
+                                                        class="placar-box__valor placar-box__penaltis placar-box__penaltis-mandante"></span>
+                                                    <span class="placar-box__versus">
+                                                        <svg viewBox="0 0 100 100" id="scoreboard-vs-icon" width="100%"
+                                                            height="100%">
+                                                            <line x1="-3" x2="100" y1="1" y2="100" stroke="#555"
+                                                                stroke-width="5"></line>
+                                                            <line x1="-3" x2="100" y1="100" y2="1" stroke="#555"
+                                                                stroke-width="5"></line>
+                                                        </svg>
+                                                    </span>
+                                                    <span
+                                                        class="placar-box__valor placar-box__penaltis placar-box__penaltis-visitante"></span>
+                                                    <span
+                                                        class="placar-box__valor placar-box__valor--visitante">{{jogo.gols_visitante}}</span>
+                                                </div>
+                                                <div class="placar__equipes placar__equipes--visitante">
+                                                    <img class="equipes__escudo equipes__escudo--visitante"
+                                                        src="{{jogo.visitante.escudo}}" width="30" height="30"
+                                                        title="{{jogo.visitante.nome}}">
+                                                    <span class="equipes__nome">{{jogo.visitante.nome}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="text-center" style="margin-bottom: 5px;">
+                                            <a class="btn btn-info" href="{{url_for('jogos.update', id=jogo.id)}}">
+                                                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Editar
+                                            </a>
+                                            <a class="btn btn-danger" href="{{ url_for('jogos.delete', id=jogo.id) }}">
+                                                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                                Excluir
+                                            </a>
+                                        </div>
+                                    </li>
+
+                                    {% else %}
+                                    <span class="text-danger">Não houveram jogos para essa rodada</span>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <!-- Controls -->
+                    <a class="left carousel-control" href="#carousel-small-table1" role="button" data-slide="prev">
+                        <span
+                            class="lista-jogos__navegacao--setas lista-jogos__navegacao--seta-esquerda  lista-jogos__navegacao--setas-ativa"
+                            aria-hidden="true">
+                            <svg stroke="#06AA48" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129 129">
+                                <path
+                                    d="M40.4 121.3c-.8.8-1.8 1.2-2.9 1.2s-2.1-.4-2.9-1.2c-1.6-1.6-1.6-4.2 0-5.8l51-51-51-51c-1.6-1.6-1.6-4.2 0-5.8 1.6-1.6 4.2-1.6 5.8 0l53.9 53.9c1.6 1.6 1.6 4.2 0 5.8l-53.9 53.9z">
+                                </path>
+                            </svg>
+                        </span>
+                        <span class="sr-only">Anterior</span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-small-table1" role="button" data-slide="next">
+                        <span
+                            class="lista-jogos__navegacao--setas lista-jogos__navegacao--seta-direita  lista-jogos__navegacao--setas-ativa"
+                            aria-hidden="true">
+                            <svg stroke="#06AA48" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129 129">
+                                <path
+                                    d="M40.4 121.3c-.8.8-1.8 1.2-2.9 1.2s-2.1-.4-2.9-1.2c-1.6-1.6-1.6-4.2 0-5.8l51-51-51-51c-1.6-1.6-1.6-4.2 0-5.8 1.6-1.6 4.2-1.6 5.8 0l53.9 53.9c1.6 1.6 1.6 4.2 0 5.8l-53.9 53.9z">
+                                </path>
+                            </svg>
+                        </span>
+                        <span class="sr-only">Próximo</span>
+                    </a>
+                </div>
+
+            </div><!-- #carousel-table -->
+        </div>
+    </div>
 </div>
-{% endblock %} 
+{% endblock %}
