@@ -12,11 +12,14 @@
 				  <th scope="col"></th>
 				  <th scope="col"></th>
 				  <th scope="col">PT</th>
-				  <th scope="col">VT</th>
+				  <th scope="col">V</th>
+				  <th scope="col">E</th>
+				  <th scope="col">D</th>
 				  <th scope="col">SG</th>
 				  <th scope="col">GP</th>
-				  <th scope="col">CV</th>
+				  <th scope="col">GC</th>
 				  <th scope="col">CA</th>
+				  <th scope="col">CV</th>
 				</tr>
 			  </thead>
 			  <tbody>
@@ -29,12 +32,15 @@
 						   class="logo-time">
 						{{ times[i].nome }}
 				  </td>
-				  <td>@mdo</td>
-				  <td>@mdo</td>
-				  <td>@mdo</td>
-				  <td>@mdo</td>
-				  <td>@mdo</td>
-				  <td>@mdo</td>
+				  <td>{{ times[i].pontos }}</td>
+				  <td>{{ times[i].vitorias }}</td>
+				  <td>{{ times[i].empates }}</td>
+				  <td>{{ times[i].derrotas }}</td>
+				  <td>{{ times[i].saldo_gols }}</td>
+				  <td>{{ times[i].gols_pro }}</td>
+				  <td>{{ times[i].gols_contra }}</td>
+				  <td>{{ times[i].cartoes_amarelos }}</td>
+				  <td>{{ times[i].cartoes_vermelhos }}</td>
 				</tr>
 				{% endfor %}
 			  </tbody>
