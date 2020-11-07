@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/estilo.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
 </head>
 <body>
     <nav class="navbar border navbar-expand-lg navbar-light bg-light mb-4">
@@ -32,24 +33,36 @@
                 {% else %}
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Jogos
+                    <i class="far fa-futbol"></i> Jogos
                   </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ url_for('jogos.index') }}"> <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> &nbsp; Gerenciar</a>
-                    <a class="dropdown-item" href="{{ url_for('jogos.create') }}"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> &nbsp; Novo</a>
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ url_for('jogos.index') }}"> 
+                      <i class="fas fa-th-list"></i>
+                      &nbsp; Gerenciar
+                    </a>
+                    <a class="dropdown-item" href="{{ url_for('jogos.create') }}"> 
+                      <i class="fas fa-plus"></i>
+                      &nbsp; Novo
+                    </a>
                   </div>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Times
+                      <i class="fas fa-shield-alt"></i> Times
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ url_for('times.index') }}"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> &nbsp; Gerenciar</a>
-                        <a class="dropdown-item" href="{{ url_for('times.create') }}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> &nbsp; Novo</a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ url_for('times.index') }}">
+                          <i class="fas fa-th-list"></i>
+                          &nbsp; Gerenciar
+                        </a>
+                        <a class="dropdown-item" href="{{ url_for('times.create') }}">
+                          <i class="fas fa-plus"></i>
+                          &nbsp; Novo
+                        </a>
                     </div>
                   </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('auth.logout') }}">Logout</a>
+                    <a class="nav-link" href="{{ url_for('auth.logout') }}"><i class="fas fa-sign-out-alt"></i> Logout</a>
                 </li>
                 {% endif %}
               </ul>

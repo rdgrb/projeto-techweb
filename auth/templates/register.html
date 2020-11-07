@@ -11,10 +11,39 @@
 				<div class="card-body">
 					<form action method="post" role="form" class="pt-2 p-2">
 						{{ form.csrf_token() }}
-						{{ wtf.form_field(form.username, class="form-control")}}
-						{{ wtf.form_field(form.email, class="form-control")}}
-						{{ wtf.form_field(form.password, class="form-control")}}
-						{{ wtf.form_field(form.password2, class="form-control")}}
+
+						<div class="input-group mb-3">
+							{{ form.username(class_="form-control")}}
+							<div class="input-group-append">
+								<div class="input-group-text bg-white">
+									<i class="fas fa-user icon-register"></i>
+								</div>
+							</div>
+						</div>
+						<div class="input-group mb-3">
+							{{ form.email(class_="form-control")}}
+							<div class="input-group-append">
+								<div class="input-group-text bg-white">
+									<i class="fas fa-envelope icon-register"></i>
+								</div>
+							</div>
+						</div>
+						<div class="input-group mb-3">
+							{{ form.password(class_="form-control")}}
+							<div class="input-group-append">
+								<div class="input-group-text bg-white">
+									<i class="fas fa-unlock icon-register"></i>
+								</div>
+							</div>
+						</div>
+						<div class="input-group mb-3">
+							{{ form.password2(class_="form-control")}}
+							<div class="input-group-append">
+								<div class="input-group-text bg-white">
+									<i class="fas fa-lock icon-register"></i>
+								</div>
+							</div>
+						</div>
 						
 						<hr>
 
