@@ -1,8 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+* {
+    font-family: "Poppins", sans-serif;
+}
+
 .theme-showcase .navbar .container {
     width: auto;
   }
 .escudo-mini{
     height: 2em;
+}
+
+.logo-time {
+    width: 8%;
 }
 /*
 CSS usados por mim mas que vocês não precisam utilizar

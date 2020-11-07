@@ -2,12 +2,41 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block app_content %}
-    <h1>Sign In</h1>
-    <div class="row">
-        <div class="col-md-4">
-            {{ wtf.quick_form(form) }}
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="card" style="width: 25rem;">
+                <div class="card-body text-center">
+                    <div>
+                        <img src="{{ url_for('static', filename='img/logo_brasileirao.png') }}" alt="Logo brasileirão"
+                            style="width: 30%"
+                        >
+                    </div>
+                    <h3>LOGIN</h3>
+
+                    <form action method="post" role="form" class="p-3">
+                        <input type="hidden" id="csrf_token" name="csrf_token" value="Ijg3M2Q1ZTE4NTgxMDAzNjM0MTFlMDRiNTQyMDYxZjgxOTQxMjhkM2Qi.X6YEEw.ikIcYbjzGv4w_FW3dI___IxOCLc">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Usuário" id="username" name="username" required value>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="password" id="password" name="password" placeholder="Senha" required value>
+                        </div>
+                        <div class="form-group d-flex justify-content-between align-items-center">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="y" id="remember_me">
+                                <label class="form-check-label" for="checkLembrar">
+                                  Lembrar-me
+                                </label>
+                              </div>
+                              <button type="submit" class="btn btn-info">ENTRAR</button>
+                        </div>
+                    </form>
+
+                    <hr>
+                    <span>Não possui uma conta?</span>
+                    <a href="{{ url_for('auth.register') }}">Cadastre-se</a>
+                </div>
+            </div>
         </div>
     </div>
- <p>New User? <a href="{{ url_for('auth.register') }}">Click to Register!</a></p>
- <p>
 {% endblock %}

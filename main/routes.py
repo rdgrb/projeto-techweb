@@ -7,4 +7,4 @@ from main.auxiliar import atualiza_tabela
 def index():
     times = atualiza_tabela()
     return render_template('index.html', title='Classificação',
-                           times=times)
+                           times=times, qnt_times=len(times))
