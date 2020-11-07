@@ -3,12 +3,11 @@ from wtforms import StringField, PasswordField, BooleanField, SubmitField
 from wtforms.validators import DataRequired, Email, EqualTo, ValidationError
 from models import User
 
-
 class LoginForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired()])
-    password = PasswordField('Password', validators=[DataRequired()])
-    remember_me = BooleanField('Remember Me')
-    submit = SubmitField('Sign In')
+    username = StringField('', validators=[DataRequired()])
+    password = PasswordField('', validators=[DataRequired()])
+    remember_me = BooleanField('Lembrar-me', render_kw={"class": "form-check-input"})
+    #submit = SubmitField('Sign In')
 
 
 class RegistrationForm(FlaskForm):
@@ -17,7 +16,7 @@ class RegistrationForm(FlaskForm):
     password = PasswordField('', validators=[DataRequired()], render_kw={"placeholder": "Senha"})
     password2 = PasswordField(
         '', validators=[DataRequired(), EqualTo('password')], render_kw={"placeholder": "Confirmar Senha"})
-    submit = SubmitField('Efetuar Registro', render_kw={"class": "btn-info"})
+    #submit = SubmitField('Efetuar Registro', render_kw={"class": "btn-info"})
 
     def validate_username(self, username):
         user = User.query.filter_by(username=username.data).first()

@@ -2,7 +2,7 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block app_content %}
-    <div class="container mt-4">
+    <div class="container">
         <div class="row justify-content-center">
             <div class="card" style="width: 25rem;">
                 <div class="card-body text-center">
@@ -14,19 +14,23 @@
                     <h3>LOGIN</h3>
 
                     <form action method="post" role="form" class="p-3">
-                        <input type="hidden" id="csrf_token" name="csrf_token" value="Ijg3M2Q1ZTE4NTgxMDAzNjM0MTFlMDRiNTQyMDYxZjgxOTQxMjhkM2Qi.X6YEEw.ikIcYbjzGv4w_FW3dI___IxOCLc">
+                        {{ form.csrf_token() }}
+                        
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Usuário" id="username" name="username" required value>
+                            <!-- <input type="text" class="form-control" placeholder="Usuário" id="username" name="username" required value> -->
+                            {{ wtf.form_field(form.username, class="form-control", placeholder="Usuário")}}
                         </div>
                         <div class="form-group">
-                            <input class="form-control" type="password" id="password" name="password" placeholder="Senha" required value>
+                            <!-- <input class="form-control" type="password" id="password" name="password" placeholder="Senha" required value> -->
+                            {{ wtf.form_field(form.password, class="form-control", placeholder="Senha")}}
                         </div>
                         <div class="form-group d-flex justify-content-between align-items-center">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="y" id="remember_me">
-                                <label class="form-check-label" for="checkLembrar">
+                                <!-- <input class="form-check-input" type="checkbox" value="y" id="remember_me"> -->
+                                {{ wtf.form_field(form.remember_me, class="form-check-input")}}
+                                <!-- <label class="form-check-label" for="remember_me">
                                   Lembrar-me
-                                </label>
+                                </label> -->
                               </div>
                               <button type="submit" class="btn btn-info">ENTRAR</button>
                         </div>
