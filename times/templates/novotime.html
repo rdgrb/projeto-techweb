@@ -1,16 +1,23 @@
 {% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
 
 {% block app_content %}
-<h1> {{ title }}</h1>
+<h1> {{ titulo}}</h1>
+
 
 <form action="" method="POST" novalidate>
 	{{ form.hidden_tag() }}
 	<div class="container">
 	<div class="row">
-		<div class="col-md-4">
-			{{ form.nome_time.label }} {{ form.nome_time(size=32) }}
-			{{ form.escudo.label }} {{ form.escudo(size=32) }}
-			{{ form.enviar() }}
+		<div class="col-md-6">
+			{{wtf.form_field(form.nome_time)}}
+			</div>
+			<div class="col-md-6">
+			{{wtf.form_field (form.escudo)}}
+			</div>
+			<div class="col-md-12">
+			{{ wtf.form_field(form.enviar)}}
+			</div>
 		</div>
 	</div>
 </div>
