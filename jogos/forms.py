@@ -25,5 +25,5 @@ class NovoJogoForm(FlaskForm):
                                   'ser o mesmo')
 
     def validate_rodada(self, rodada):
-        if rodada.data > 10 or rodada.data < 0:
+        if rodada.data > 38 or rodada.data < 0:
             raise ValidationError('Rodada Inválida')

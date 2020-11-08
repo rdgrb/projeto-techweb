@@ -4,6 +4,7 @@
 .escudo-mini{
     height: 2em;
 }
+
 /*
 CSS usados por mim mas que vocês não precisam utilizar
 tr td:first-child{
@@ -187,6 +188,7 @@ a > li{
     overflow: hidden;
     vertical-align: middle;
     width: 9px;
+    align-items: center;
 }
 
 .placar-box__valor {
