@@ -12,7 +12,7 @@
 					<form action method="post" role="form" class="pt-2 p-2">
 						{{ form.csrf_token() }}
 
-						<div class="input-group mb-3">
+						<div class="input-group">
 							{{ form.username(class_="form-control")}}
 							<div class="input-group-append">
 								<div class="input-group-text bg-white">
@@ -20,7 +20,13 @@
 								</div>
 							</div>
 						</div>
-						<div class="input-group mb-3">
+						{% if form.username.errors %} 
+							{% for error in form.username.errors %}
+								<span class="text-danger">{{ error }}</span>
+							{% endfor %}
+						{% endif %}
+
+						<div class="input-group mt-3">
 							{{ form.email(class_="form-control")}}
 							<div class="input-group-append">
 								<div class="input-group-text bg-white">
@@ -28,7 +34,13 @@
 								</div>
 							</div>
 						</div>
-						<div class="input-group mb-3">
+						{% if form.email.errors %} 
+							{% for error in form.email.errors %}
+								<span class="text-danger">{{ error }}</span>
+							{% endfor %}
+						{% endif %}
+
+						<div class="input-group mt-3">
 							{{ form.password(class_="form-control")}}
 							<div class="input-group-append">
 								<div class="input-group-text bg-white">
@@ -36,7 +48,8 @@
 								</div>
 							</div>
 						</div>
-						<div class="input-group mb-3">
+
+						<div class="input-group mt-3">
 							{{ form.password2(class_="form-control")}}
 							<div class="input-group-append">
 								<div class="input-group-text bg-white">
@@ -44,7 +57,12 @@
 								</div>
 							</div>
 						</div>
-						
+
+						{% if form.password2.errors %} 
+							{% for error in form.password2.errors %}
+								<span class="text-danger">{{ error }}</span>
+							{% endfor %}
+						{% endif %}
 						<hr>
 
 						<div class="form-group d-flex justify-content-center">
