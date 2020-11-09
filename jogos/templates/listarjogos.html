@@ -29,7 +29,7 @@
                                                 </div>
                                                 <div class="placar">
                                                     <div class="placar__equipes placar__equipes--mandante">
-                                                        <span class="equipes__nome">{{jogo.mandante.nome}}</span>
+                                                        <span class="equipes__nome">{{jogo.mandante.nome[0:3].upper()}}</span>
                                                         <img class="equipes__escudo equipes__escudo--mandante"
                                                             src="{{jogo.mandante.escudo}}" width="30" height="30"
                                                             title="{{jogo.mandante.nome}}">
@@ -57,7 +57,7 @@
                                                         <img class="equipes__escudo equipes__escudo--visitante"
                                                             src="{{jogo.visitante.escudo}}" width="30" height="30"
                                                             title="{{jogo.visitante.nome}}">
-                                                        <span class="equipes__nome">{{jogo.visitante.nome}}</span>
+                                                        <span class="equipes__nome">{{jogo.visitante.nome[0:3].upper()}}</span>
                                                     </div>
                                                 </div>
                                             </div>

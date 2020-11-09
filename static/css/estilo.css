@@ -198,6 +198,7 @@ a > li{
     height: 8px;
     margin: 0 5px;
     overflow: hidden;
+    align-items: center;
     vertical-align: middle;
     width: 9px;
 }
