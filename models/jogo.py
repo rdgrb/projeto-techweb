@@ -22,7 +22,7 @@ class Jogo(db.Model):
 
     @classmethod
     def jogos_rodada(cls):
-        rodadas = 10
+        rodadas = 38
         jogos = {}
         for i in range(1, rodadas + 1):
             partidas = cls.query.filter_by(rodada=i) \
