@@ -1,32 +1,51 @@
-{% extends "base.html"%}
+{% extends "base.html" %}
 
 {% block app_content %}
-<table class="table table-dark">
-	<thead>
-	  <tr>
-		<th scope="col">&nbsp;</th>
-		<th scope="col">Clube</th>
-		<th scope="col">PT</th>
-		<th scope="col">VT</th>
-		<th scope="col">SG</th>
-		<th scope="col">GP</th>
-		<th scope="col">CV</th>
-		<th scope="col">CA</th>
-	  </tr>
-	</thead>
-	<tbody>
-		{% for time in times %}
-	  <tr>
-		<th scope="row">1</th>
-		<td>Mark</td>
-		<td>Otto</td>
-		<td>@mdo</td>
-		<td>@mdo</td>
-		<td>@mdo</td>
-		<td>@mdo</td>
-		<td>@mdo</td>
-	  </tr>
-	  {% endfor %}
-	</tbody>
-  </table>
+<div class="container mt-4">
+	<div class="row justify-content-center">
+		<h1>Classificação</h1>
+	</div>
+	<div class="row justify-content-center">
+		<table class="table border bg-white w-75">
+			<thead>
+				<tr>
+				  <th scope="col"></th>
+				  <th scope="col"></th>
+				  <th scope="col">PT</th>
+				  <th scope="col">V</th>
+				  <th scope="col">E</th>
+				  <th scope="col">D</th>
+				  <th scope="col">SG</th>
+				  <th scope="col">GP</th>
+				  <th scope="col">GC</th>
+				  <th scope="col">CA</th>
+				  <th scope="col">CV</th>
+				</tr>
+			  </thead>
+			  <tbody>
+				  {% for i in range(0, qnt_times, 1) %}
+				<tr>
+				  <th scope="row">{{ i + 1 }}º</th>
+				  <td>
+					  <img src="{{ times[i].escudo }}"
+						   alt="Logo {{ times[i].nome }}"
+						   class="logo-time">
+						{{ times[i].nome }}
+				  </td>
+				  <td>{{ times[i].pontos }}</td>
+				  <td>{{ times[i].vitorias }}</td>
+				  <td>{{ times[i].empates }}</td>
+				  <td>{{ times[i].derrotas }}</td>
+				  <td>{{ times[i].saldo_gols }}</td>
+				  <td>{{ times[i].gols_pro }}</td>
+				  <td>{{ times[i].gols_contra }}</td>
+				  <td>{{ times[i].cartoes_amarelos }}</td>
+				  <td>{{ times[i].cartoes_vermelhos }}</td>
+				</tr>
+				{% endfor %}
+			  </tbody>
+		</table>
+	</div>
+</div>
+
 {% endblock %}

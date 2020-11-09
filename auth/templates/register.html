@@ -2,10 +2,81 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block app_content %}
-    <h1>Register</h1>
-		<div class="row">
-			<div class="col-md-4">
-				{{ wtf.quick_form(form) }}
+	<div class="container mb-5">
+		<div class="row justify-content-center">
+			<div class="card" style="width: 30rem;">
+				<div class="card-header pb-0 bg-white d-flex justify-content-center">
+					<h3 class="card-title">CADASTRO</h3>
+				</div>
+				<div class="card-body">
+					<form action method="post" role="form" class="pt-2 p-2">
+						{{ form.csrf_token() }}
+
+						<div class="input-group">
+							{{ form.username(class_="form-control")}}
+							<div class="input-group-append">
+								<div class="input-group-text bg-white">
+									<i class="fas fa-user icon-register"></i>
+								</div>
+							</div>
+						</div>
+						{% if form.username.errors %} 
+							{% for error in form.username.errors %}
+								<span class="text-danger">{{ error }}</span>
+							{% endfor %}
+						{% endif %}
+
+						<div class="input-group mt-3">
+							{{ form.email(class_="form-control")}}
+							<div class="input-group-append">
+								<div class="input-group-text bg-white">
+									<i class="fas fa-envelope icon-register"></i>
+								</div>
+							</div>
+						</div>
+						{% if form.email.errors %} 
+							{% for error in form.email.errors %}
+								<span class="text-danger">{{ error }}</span>
+							{% endfor %}
+						{% endif %}
+
+						<div class="input-group mt-3">
+							{{ form.password(class_="form-control")}}
+							<div class="input-group-append">
+								<div class="input-group-text bg-white">
+									<i class="fas fa-unlock icon-register"></i>
+								</div>
+							</div>
+						</div>
+
+						<div class="input-group mt-3">
+							{{ form.password2(class_="form-control")}}
+							<div class="input-group-append">
+								<div class="input-group-text bg-white">
+									<i class="fas fa-lock icon-register"></i>
+								</div>
+							</div>
+						</div>
+
+						{% if form.password2.errors %} 
+							{% for error in form.password2.errors %}
+								<span class="text-danger">{{ error }}</span>
+							{% endfor %}
+						{% endif %}
+						<hr>
+
+						<div class="form-group d-flex justify-content-center">
+							<button class="btn btn-info">EFETUAR CADASTRO</button>
+						</div>
+					</form>
+				</div>
+				<div style="background: white;" class="card-footer d-flex justify-content-center">
+					<span>
+						Já possui uma conta? 
+						<a href="{{ url_for('auth.login') }}">Efetuar login</a>
+					</span>
+				</div>
 			</div>
-    </div>
+		</div>
+	</div>
 {% endblock %}
