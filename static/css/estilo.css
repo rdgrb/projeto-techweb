@@ -1,4 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+    --libertadores-color: rgba(0, 119, 255, 0.87);
+    --qualify-libertadores-color:rgba(255, 174, 0, 0.87) ;
+    --sulamericana-color: rgba(0, 202, 10, 0.87);
+    --rebaixamento-color: rgba(255, 0, 0, 0.87);
+}
+
 * {
     font-family: "Poppins", sans-serif;
 }
@@ -21,6 +29,53 @@
 .icon-register {
     width: 20px;
 }
+
+.time-rebaixado {
+    border-left: 3px !important; 
+    border-left-style: solid !important;
+    border-color: var(--rebaixamento-color) !important;
+}
+
+.time-libertadores {
+    border-left: 3px !important; 
+    border-left-style: solid !important; 
+    border-color: var(--libertadores-color) !important;
+}
+
+.time-sulamericana {
+    border-left: 3px !important; 
+    border-left-style: solid !important; 
+    border-color: var(--sulamericana-color) !important;
+}
+
+.time-qualify-libertadores {
+    border-left: 3px !important; 
+    border-left-style: solid !important; 
+    border-color: var(--qualify-libertadores-color) !important;
+}
+
+.legenda-icone {
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+}
+
+#legenda-rebaixamento {
+    background-color: var(--rebaixamento-color);
+}
+
+#legenda-libertadores {
+    background-color: var(--libertadores-color);
+}
+
+#legenda-sulamericana {
+    background-color: var(--sulamericana-color);
+}
+
+#legenda-qualify-libertadores {
+    background-color: var(--qualify-libertadores-color);
+}
+
 /*
 CSS usados por mim mas que vocês não precisam utilizar
 tr td:first-child{

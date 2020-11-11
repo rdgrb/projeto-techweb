@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block app_content %}
-<div class="container mt-4">
+<div class="container mt-4 mb-5">
 	<div class="row justify-content-center">
 		<h1>Classificação</h1>
 	</div>
@@ -9,8 +9,7 @@
 		<table class="table border bg-white w-75">
 			<thead>
 				<tr>
-				  <th scope="col"></th>
-				  <th scope="col"></th>
+				  <th scope="col" colspan="2">Time</th>
 				  <th scope="col">PT</th>
 				  <th scope="col">V</th>
 				  <th scope="col">E</th>
@@ -24,7 +23,12 @@
 			  </thead>
 			  <tbody>
 				  {% for i in range(0, qnt_times, 1) %}
-				<tr>
+				  
+				<tr class="{{'time-rebaixado' if situacao_time(i + 1, [17, 18, 19, 20])}}
+					{{'time-libertadores' if situacao_time(i + 1, [1, 2, 3, 4])}}
+					{{'time-sulamericana' if situacao_time(i + 1, [7, 8, 9, 10, 11, 12])}}
+					{{'time-qualify-libertadores' if situacao_time(i + 1, [5, 6])}}
+					">
 				  <th scope="row">{{ i + 1 }}º</th>
 				  <td>
 					  <img src="{{ times[i].escudo }}"
@@ -43,6 +47,37 @@
 				  <td>{{ times[i].cartoes_vermelhos }}</td>
 				</tr>
 				{% endfor %}
+				<tr>
+					<td colspan="11">
+						<div class="card border-0">
+							<h5 class="card-title">Legenda</h5>
+							<div class="card-body">
+								<div class="row">
+									<div class="col">
+										<div class="d-flex align-items-center mb-2">
+											<div id="legenda-libertadores" class="legenda-icone mr-2"></div>
+											Fase de grupos da Libertadores
+										</div>
+										<div class="d-flex align-items-center">
+											<div id="legenda-qualify-libertadores" class="legenda-icone mr-2"></div>
+											Qualificatórias da Libertadores
+										</div>
+									</div>
+									<div class="col">
+										<div class="d-flex align-items-center mb-2">
+											<div id="legenda-sulamericana" class="legenda-icone mr-2"></div>
+											Fase de grupos da copa Sul-Americana
+										</div>
+										<div class="d-flex align-items-center">
+											<div id="legenda-rebaixamento" class="legenda-icone mr-2"></div>
+											Zona de Rebaixamento
+										</div>
+									</div>
+								</div>							
+							</div>
+						</div>
+					</td>
+				</tr>
 			  </tbody>
 		</table>
 	</div>
