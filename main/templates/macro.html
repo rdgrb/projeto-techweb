@@ -1,0 +1,80 @@
+{% macro render_modal() -%}
+<div class="modal fade" id="modalDetalhes" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+	  <div class="modal-content">
+		<div class="modal-header mb-0 border-0">
+		  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		  </button>
+		</div>
+		<div class="modal-body">
+			<div class="d-flex justify-content-center w-100">
+				<div class="d-block text-center">
+					<img id="logo-modal" src="#" alt="Logo do time" style="width: 100px; height: 100px; margin-bottom: 10px">
+					<h4 id="titulo-modal">Time</h4>
+					<h3 class="font-weight-bold" id="colocacao-modal">Colocação</h3>
+				</div>
+			</div>
+
+			<hr>
+
+			<div class="row">
+				<div class="col-6">
+					<ul class="list-unstyled lista-modal">
+						<li>
+							<span>Vitórias</span>
+							<span id="vitorias-modal">Vitorias</span>
+						</li>
+						<li>
+							<span>Empates</span>
+							<span id="empates-modal">Empates</span>
+						</li>
+						<li>
+							<span>Derrotas</span>
+							<span id="derrotas-modal">Derrotas</span>
+						</li>
+					</ul>
+				</div>
+				<div class="col-6">
+					<ul class="list-unstyled lista-modal">
+						<li>
+							<span>Saldo Gols</span>
+							<span id="saldo-gols-modal">Saldo Gols</span>
+						</li>
+						<li>
+							<span>Gols Pro</span>
+							<span id="gols-pro-modal">Gols Pro</span>
+						</li>
+						<li>
+							<span>Gols Contra</span>
+							<span id="gols-contra-modal">Gols Contra</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<hr>
+
+			<div class="row justify-content-center">
+				<div class="d-flex justify-content-center align-items-center ">
+					<img style="width: 30px; height: 30px;" src="{{ url_for('static', filename='img/012-yellow card.svg') }}" alt="" class="img-fluid">
+					<span id="amarelo-modal" class="pl-2">Cartões Amarelos</span>
+				</div>
+				<div class="d-flex justify-content-center align-items-center ml-4">
+					<img style="width: 30px; height: 30px;" src="{{ url_for('static', filename='img/011-red card.svg') }}" alt="" class="img-fluid">
+					<span id="vermelho-modal" class="pl-2">Cartões Vermelhos</span>
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer p-0 m-0">
+			<div class="card border-0 w-100">
+				<div class="card-body">
+					<small class="card-title font-weight-bold text-info">ATÉ O MOMENTO:</small><br>
+					<span id="campeonato-modal">Classificação</span>
+				</div>
+			</div>
+		</div>
+	  </div>
+	</div>
+  </div>
+{%- endmacro %}
