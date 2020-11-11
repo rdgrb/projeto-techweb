@@ -76,6 +76,19 @@
     background-color: var(--qualify-libertadores-color);
 }
 
+#legenda-tabela {
+    cursor: default;
+}
+
+.linha-time {
+    cursor: pointer; 
+}
+
+.lista-modal li {
+    display: flex; 
+    justify-content: space-between;
+}
+
 /*
 CSS usados por mim mas que vocês não precisam utilizar
 tr td:first-child{

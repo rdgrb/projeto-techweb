@@ -1,12 +1,20 @@
 {% extends "base.html" %}
+{% from "macro.html" import render_modal %}
 
 {% block app_content %}
 <div class="container mt-4 mb-5">
-	<div class="row justify-content-center">
-		<h1>Classificação</h1>
+	<div class="d-flex align-items-center justify-content-center mb-4">
+		<div class="col-2">
+			<img style="width: 150px; height: 150px;"
+			 src="{{ url_for('static', filename='img/logo_brasileirao.png') }}" alt="Logo - Brasileirão Série A">
+		</div>
+		<div class="col-4">
+			<h5 class="text-uppercase text-info mb-0">Classificação</h5>
+			<h2 class="font-weight-bold">Brasileirão - Série A</h2>
+		</div>
 	</div>
 	<div class="row justify-content-center">
-		<table class="table border bg-white w-75">
+		<table class="table table-hover border bg-white w-75">
 			<thead>
 				<tr>
 				  <th scope="col" colspan="2">Time</th>
@@ -24,32 +32,35 @@
 			  <tbody>
 				  {% for i in range(0, qnt_times, 1) %}
 				  
-				<tr class="{{'time-rebaixado' if situacao_time(i + 1, [17, 18, 19, 20])}}
+				<tr class="linha-time
+					{{'time-rebaixado' if situacao_time(i + 1, [17, 18, 19, 20])}}
 					{{'time-libertadores' if situacao_time(i + 1, [1, 2, 3, 4])}}
 					{{'time-sulamericana' if situacao_time(i + 1, [7, 8, 9, 10, 11, 12])}}
 					{{'time-qualify-libertadores' if situacao_time(i + 1, [5, 6])}}
-					">
-				  <th scope="row">{{ i + 1 }}º</th>
-				  <td>
+					"
+					id="{{ i }}"
+					>
+				  <th id="p-{{ times[i].nome }}" scope="row">{{ i + 1 }}º</th>
+				  <td class="nome_time">
 					  <img src="{{ times[i].escudo }}"
 						   alt="Logo {{ times[i].nome }}"
 						   class="logo-time">
 						{{ times[i].nome }}
 				  </td>
-				  <td>{{ times[i].pontos }}</td>
-				  <td>{{ times[i].vitorias }}</td>
-				  <td>{{ times[i].empates }}</td>
-				  <td>{{ times[i].derrotas }}</td>
-				  <td>{{ times[i].saldo_gols }}</td>
-				  <td>{{ times[i].gols_pro }}</td>
-				  <td>{{ times[i].gols_contra }}</td>
-				  <td>{{ times[i].cartoes_amarelos }}</td>
-				  <td>{{ times[i].cartoes_vermelhos }}</td>
+				  <td class="pontos font-weight-bold text-info">{{ times[i].pontos }}</td>
+				  <td class="vitorias">{{ times[i].vitorias }}</td>
+				  <td class="empates">{{ times[i].empates }}</td>
+				  <td class="derrotas">{{ times[i].derrotas }}</td>
+				  <td class="saldo_gols">{{ times[i].saldo_gols }}</td>
+				  <td class="gols_pro">{{ times[i].gols_pro }}</td>
+				  <td class="gols_contra">{{ times[i].gols_contra }}</td>
+				  <td class="cartoes_amarelos">{{ times[i].cartoes_amarelos }}</td>
+				  <td class="cartoes_vermelhos">{{ times[i].cartoes_vermelhos }}</td>
 				</tr>
 				{% endfor %}
-				<tr>
-					<td colspan="11">
-						<div class="card border-0">
+				<tr id="legenda-tabela">
+					<td colspan="11" class="p-0">
+						<div class="card border-0 p-3">
 							<h5 class="card-title">Legenda</h5>
 							<div class="card-body">
 								<div class="row">
@@ -82,5 +93,7 @@
 		</table>
 	</div>
 </div>
+
+{{ render_modal() }}
 
 {% endblock %}

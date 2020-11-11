@@ -12,8 +12,9 @@ def index():
         
         return False 
 
-
+    show_modal = True 
     times = atualiza_tabela()
     return render_template('index.html', title='Classificação',
                            times=times, qnt_times=len(times),
-                           situacao_time=situacao_time)
+                           situacao_time=situacao_time,
+                           show_modal=show_modal)
