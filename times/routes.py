@@ -35,7 +35,7 @@ def update(id):
         time.escudo = form.escudo.data
         db.session.add(time)
         db.session.commit()
-        flash('Your changes have been saved.')
+        flash('As alterações foram atualizadas com sucesso.')
         return redirect(url_for('times.index'))
     elif request.method == 'GET':
         time = Time.query.get(id)
