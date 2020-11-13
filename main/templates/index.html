@@ -33,7 +33,7 @@
 				  {% for i in range(0, qnt_times, 1) %}
 				  
 				<tr class="linha-time
-					{{'time-rebaixado' if situacao_time(i + 1, [17, 18, 19, 20])}}
+					{{'time-rebaixado' if checar_rebaixamento(i, qnt_times)}}
 					{{'time-libertadores' if situacao_time(i + 1, [1, 2, 3, 4])}}
 					{{'time-sulamericana' if situacao_time(i + 1, [7, 8, 9, 10, 11, 12])}}
 					{{'time-qualify-libertadores' if situacao_time(i + 1, [5, 6])}}
