@@ -18,7 +18,9 @@
 <body>
     <nav class="navbar border navbar-expand-lg navbar-light bg-light mb-4">
         <div class="container">
-            <a class="navbar-brand" href="{{ url_for('main.index') }}">Brasileirão</a>
+            <a class="navbar-brand text-info font-weight-bold" href="{{ url_for('main.index') }}">
+              <img src="{{ url_for('static', filename='img/logo_brasileirao.png') }}" alt=""
+              style="width: 50px; height: 50px"> Brasileirão</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>

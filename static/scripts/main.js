@@ -21,7 +21,7 @@ $(document).ready(() => {
 
         $("#logo-modal").attr("src", time.logo);
         $("#titulo-modal").html(time.nome.replace("_", " "));
-        $("#colocacao-modal").html(`${parseInt($id) + 1}º`);
+        $("#colocacao-modal").html(`${parseInt($id) + 1}º <span class="text-dark">- ${time.pontos} pts</span>`);
         $("#colocacao-modal").removeClass("text-info text-warning text-success text-danger")
         $("#vitorias-modal").html(time.vitorias);
         $("#empates-modal").html(time.empates);
