@@ -1,10 +1,10 @@
 {% extends "base.html"%}
 
 {% block app_content %}
-<div class="container">
+<div class="container mb-5">
     <div class="row justify-content-center">
         <div class="w-100">
-            <div id="carousel-table" class="carousel slide" data-ride="carousel" data-interval="false">
+            <div id="carousel-table" class="carousel slide p-3" data-ride="carousel" data-interval="false">
                 <div class="carousel-inner" role="listbox">
                     <div id="carousel-small-table1" class="carousel slide w-100" data-ride="carousel"
                         data-interval="false">
@@ -15,7 +15,7 @@
                             {% if rodadaActive == rodada %}
                             {% set active = 'active' %}
                             {% endif %}
-                            <div class="carousel-item {{active}}">
+                            <div class="carousel-item pb-3 {{active}}">
                                 <div class="col-xl-12">
                                     <h3 class="fonte-titulo titulo-carousel-small">{{rodada}} ª Rodada</h3>
                                     <ul class="lista-jogos">
