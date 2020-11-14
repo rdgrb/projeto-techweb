@@ -21,8 +21,10 @@ $(document).ready(() => {
 
         $("#logo-modal").attr("src", time.logo);
         $("#titulo-modal").html(time.nome.replace("_", " "));
-        $("#colocacao-modal").html(`${parseInt($id) + 1}º`);
+        
+        $("#colocacao-modal").html(`${parseInt($id) + 1}º <span class="text-dark">- ${time.pontos} pts</span>`);
         $("#colocacao-modal").removeClass("text-info text-warning text-success text-danger")
+
         $("#vitorias-modal").html(time.vitorias);
         $("#empates-modal").html(time.empates);
         $("#derrotas-modal").html(time.derrotas);
@@ -37,7 +39,7 @@ $(document).ready(() => {
         $("#pontos").html(`Pontos: ${time.pontos}`);
 
         let classificado = "";
-        switch(checar_classificacao(parseInt($id) + 1)) {
+        switch(checar_classif($(id).attr("class"))) {
             case "libertadores":
                 classificado = "Classificando para fase de grupos Libertadores"; 
                 $("#colocacao-modal").addClass("text-info");
@@ -62,32 +64,20 @@ $(document).ready(() => {
 
         $("#campeonato-modal").html(classificado);
         $("#modalDetalhes").modal('show');
-
-        console.log(time);
     })
 })
 
-const checar_classificacao = classificacao => {
+const checar_classif = classificacao => {
     const classificacoes = {
-        1: "libertadores", 
-        2: "libertadores",
-        3: "libertadores", 
-        4: "libertadores",
-        5: "qualify-libertadores", 
-        6: "qualify-libertadores",
-        7: "sul-americana",
-        8: "sul-americana",
-        9: "sul-americana",
-        10: "sul-americana",
-        11: "sul-americana",
-        12: "sul-americana",
-        17: "rebaixamento",
-        18: "rebaixamento",
-        19: "rebaixamento",
-        20: "rebaixamento",
+        "time-libertadores": "libertadores",
+        "time-qualify-libertadores": "qualify-libertadores",
+        "time-sulamericana": "sul-americana",
+        "time-rebaixado": "rebaixamento"
     }
 
-    return classificacoes[classificacao]
-    ? classificacoes[classificacao]
-    : "brasileirao" 
+    const lista_classes = classificacao.split(/\s+/);
+
+    return classificacoes[lista_classes[1]]
+    ? classificacoes[lista_classes[1]]
+    : "brasileirao"
 }
