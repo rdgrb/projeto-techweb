@@ -6,7 +6,7 @@ from config import Config
 
 # Faculdade Imapcta Tecnologia
 # Tecnologia Web 02/2020 - ADS/BD
-# Grupo XX:
+# Grupo 08:
 # wilamy.amaral@aluno.faculdadeimpacta.com.br
 # mateus.costa@aluno.faculdadeimpacta.com.br
 # leonardo.minas@aluno.faculdadeimpacta.com.br
